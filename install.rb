@@ -6,8 +6,9 @@ dest = File.join(RAILS_ROOT, '/config/sites_EN.xml')
 puts "** Copying config file into #{dest} ...." 
 FileUtils.cp(config, dest) unless File.exists? dest
 
-images = File.join(RAILS_ROOT, '/vendor/plugins/social_bookmark/images/')
-dest = File.join(RAILS_ROOT, '/public/images/social_bookmark/')
+puts "** Copying all images to public/images/social_bookmark/ ..."
+images = File.join(RAILS_ROOT, '/vendor/plugins/social_bookmark/images/*')
+dest = File.join(RAILS_ROOT, '/public/images/social_bookmark/*')
 
 unless File.exists? dest
   FileUtils.cd images
