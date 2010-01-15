@@ -13,7 +13,7 @@ dest = File.join(RAILS_ROOT, '/public/images/social_bookmark/')
 unless File.exists? dest
   FileUtils.cd images
   FileUtils.mkdir dest
-  FileUtils.cp_r Dir.glob('*.png'), 'dest', :noop => true, :verbose => true  
+  FileUtils.cp Dir.glob('*.png'), dest, :noop => true, :verbose => true  
 end
 
 puts "** Installation finished, edit your configuration file to select your bookmark list and restart your application afterwards ...." 
