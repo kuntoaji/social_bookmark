@@ -7,14 +7,13 @@ puts "** Copying config file into #{dest} ...."
 FileUtils.cp(config, dest) unless File.exists? dest
 
 puts "** Copying all images to public/images/social_bookmark/ ..."
-images = File.join(RAILS_ROOT, '/vendor/plugins/social_bookmark/images/*')
+images = File.join(RAILS_ROOT, '/vendor/plugins/social_bookmark/images/')
 dest = File.join(RAILS_ROOT, '/public/images/social_bookmark/')
 
 unless File.exists? dest
   FileUtils.cd images
   FileUtils.mkdir dest
-  FileUtils.cp(images, dest) unless File.exists? dest
-#  FileUtils.cp_r Dir.glob('*.png'), dest, :noop => true, :verbose => true  
+  FileUtils.cp_r Dir.glob('*.png'), 'dest', :noop => true, :verbose => true  
 end
 
 puts "** Installation finished, edit your configuration file to select your bookmark list and restart your application afterwards ...." 
