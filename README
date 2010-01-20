@@ -6,15 +6,21 @@ Social Bookmark is a rails port of Wordpress Social Bookmark plugin by Apostolos
 Install
 =======
 
-Just run ./script/plugin install git://github.com/fdv/social_bookmark.git from your Rails app, the plugin will do the rest.
+Just run ./script/plugin install git://github.com/fdv/social_bookmark.git or git://github.com/kuntoaji/social_bookmark.git from your Rails app, the plugin will do the rest.
 
 Edit config/sites_EN.xml to chose the social bookmarks you want to display.
 
-Edit your template and add 
+Edit your template and add this line below to show all site based on sites_EN.xml:
 
 <%= render_social_bookmarks(link, title) %>
 
+or
+
+<%- sites = ['facebook','yahoo my web'] # --> look at config/sites/EN.xml before create this array %>
+<%= render_social_bookmarks(link, title, sites)
+
 Link is the link to your content.
 Title is your content title
+if you pass the third option, helper will render all bookmarks based on the third option.
 
 Copyright (c) 2009 Frédéric de Villamil, released under the MIT license
