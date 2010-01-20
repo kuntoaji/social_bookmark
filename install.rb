@@ -6,16 +6,13 @@ dest = File.join(RAILS_ROOT, '/config/sites_EN.xml')
 puts "** Copying config file into #{dest} ...." 
 FileUtils.cp(config, dest) unless File.exists? dest
 
-puts "** Copying all images to public/images/social_bookmark/ ..."
-images = File.join(RAILS_ROOT, '/vendor/plugins/social_bookmark/images/')
+images_parent = File.join(RAILS_ROOT, '/vendor/plugins/social_bookmark/')
 dest = File.join(RAILS_ROOT, '/public/images/social_bookmark/')
 
 unless File.exists? dest
-  FileUtils.mkdir dest
-  FileUtils.cd images
-  images = images + '.'
-  FileUtils.cp_r images, dest
-  #FileUtils.cp_r Dir.glob('*.png'), dest, :noop => true, :verbose => true  
+  puts "** Moving all images to public/images/social_bookmark/ ..."
+  FileUtils.cd images_parent
+  FileUtils.mv 'images/' dest
 end
 
 puts "** Installation finished, edit your configuration file to select your bookmark list and restart your application afterwards ...." 
