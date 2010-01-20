@@ -6,7 +6,7 @@ module SocialBookmark
     def to_s; title end
   end
 
-  def parse_config(permalink, title, options)
+  def parse_config(permalink, title)
     xml = REXML::Document.new(File.open("#{RAILS_ROOT}/config/sites_EN.xml"))
     items = []
 
