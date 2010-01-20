@@ -52,7 +52,7 @@ end
 
 module SocialBookmarkHelper
   def render_social_bookmarks(permalink, title, options = [])
-  options.empty ? items = @controller.parse_config(permalink, title) : @controller.parse_config_with_options(permalink, title, options)
+  options.empty? ? items = @controller.parse_config(permalink, title) : @controller.parse_config_with_options(permalink, title, options)
     
     output = "<p id='social'>"
     
