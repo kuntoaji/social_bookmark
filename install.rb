@@ -12,7 +12,6 @@ dest = File.join(RAILS_ROOT, '/public/images/')
 File.exists?(dest) ? FileUtils.rm_rf(dest) : FileUtils.mkdir(dest)
 puts "** Moving all images to public/images/social_bookmark/ ..."
 FileUtils.cd images_parent
-File.rename 'images', 'social_bookmark'
 FileUtils.mv 'social_bookmark/', dest
 
 puts "** Installation finished, edit your configuration file to select your bookmark list and restart your application afterwards ...." 
